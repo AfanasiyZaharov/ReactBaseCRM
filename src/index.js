@@ -4,5 +4,19 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import counter from './reducerCounter'
+
+import { createStore } from 'redux'
+
+
+const store = createStore(counter)
+
+const render = () => {
+    ReactDOM.render(<App store = {store}/>, document.getElementById('root'));
+}
+
+render();
+
+store.subscribe(render);
+
 registerServiceWorker();
