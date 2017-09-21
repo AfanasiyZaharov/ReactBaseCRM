@@ -4,4 +4,4 @@ import clients from './clients'
 
 export default combineReducers({
     clients
-})
+});

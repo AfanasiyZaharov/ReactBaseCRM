@@ -1,3 +1,6 @@
+
+//click to client
+//action
 export function DisplayId(Id) {
 
     return {
@@ -6,3 +9,7 @@ export function DisplayId(Id) {
     }
 
 }
+
+
+
+

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-
+/*
+    displays a client
+*/
 class Client extends Component{
     render(){
         const {client } = this.props
