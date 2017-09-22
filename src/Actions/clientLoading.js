@@ -16,25 +16,41 @@ export function loadingClients() {
                     {
                         id: 0,
                         name: "Василий",
-                        description: "Ты как там?"
+                        description: "Ты как там?",
+                        lastName: "Васин",
+                        middleName: "Васильевич",
+                        email: "123@123",
+                        phone: "89123211223"
                     },
                     {
                         id: 1,
                         name: "Дред",
-                        description: "черепаха"
+                        description: "черепаха",
+                        lastName: "Васин",
+                        middleName: "Васильевич",
+                        email: "123@123",
+                        phone: "89123211223"
                     },
                     {
                         id: 2,
                         name: "Привет",
-                        description: "мир"
+                        description: "мир",
+                        lastName: "Васин",
+                        middleName: "Васильевич",
+                        email: "123@123",
+                        phone: "89123211223"
                     },
                     {
                         id: 3,
                         name: "Свободу",
-                        description: "попугаям"
+                        description: "попугаям",
+                        lastName: "Васин",
+                        middleName: "Васильевич",
+                        email: "123@123",
+                        phone: "89123211223"
                     },
                 ]
             })
-        }, 3000);
+        }, 150);
     }
 }

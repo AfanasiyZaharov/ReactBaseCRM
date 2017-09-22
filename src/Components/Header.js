@@ -7,7 +7,7 @@ class Header extends Component {
         return (
             <div className="container">
                 <div className="page-header">
-                    <h3>React based CRM version {version}</h3>
+                    <h3>React based CRM version 0.0.1</h3>
                 </div>
             </div>
         )

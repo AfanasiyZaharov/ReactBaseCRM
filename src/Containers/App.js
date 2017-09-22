@@ -3,6 +3,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 //import Header from '../Components/Header.js'
 import Clients from '../Components/Clients'
+import Header from '../Components/Header'
+
 
 import { bindActionCreators } from 'redux'
 
@@ -26,6 +28,7 @@ class App extends Component {
     return (
 
       <div className="App">
+        <Header/>
         <Clients clients={clients} clientClick={DisplayId} />
       </div>
     );
