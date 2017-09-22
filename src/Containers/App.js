@@ -18,17 +18,19 @@ import { connect } from 'react-redux'
 //root component of application
 class App extends Component {
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.loading.loadingClients();
   }
   render() {
 
+    const { ownProps } = this.props
+    console.log('own', ownProps)
     const { DisplayId } = this.props.clickActions
     const { clients } = this.props
     return (
 
       <div className="App">
-        <Header/>
+        <Header />
         <Clients clients={clients} clientClick={DisplayId} />
       </div>
     );
@@ -36,9 +38,10 @@ class App extends Component {
 }
 
 // linking react app to redux
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
-    clients: state.clients
+    clients: state.clients,
+    ownProps
   }
 }
 

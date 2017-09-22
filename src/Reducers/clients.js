@@ -1,4 +1,13 @@
 const initialState = [
+    {
+        id: 0,
+        name: "Василий",
+        description: "Ты как там?",
+        lastName: "Васин",
+        middleName: "Васильевич",
+        email: "123@123",
+        phone: "89123211223"
+    },
 ];
 
 
