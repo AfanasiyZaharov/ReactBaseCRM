@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 //header component, displays version
 class Header extends Component {
     render() {
-        const { version } = this.props;
         return (
             <div className="container">
                 <div className="page-header">

@@ -8,7 +8,6 @@ import Header from '../Components/Header'
 
 import { bindActionCreators } from 'redux'
 
-import * as clickActions from '../Actions/clickClientAction'
 import * as loading from '../Actions/clientLoading'
 
 import { connect } from 'react-redux'
@@ -18,20 +17,22 @@ import { connect } from 'react-redux'
 //root component of application
 class App extends Component {
 
+
+  //now I removed it, because it ruined an state in routing
   componentDidMount() {
-    this.props.loading.loadingClients();
+   // console.count('we loading');
+    //this.props.loading.loadingClients();
   }
   render() {
 
     const { ownProps } = this.props
     console.log('own', ownProps)
-    const { DisplayId } = this.props.clickActions
     const { clients } = this.props
     return (
 
       <div className="App">
         <Header />
-        <Clients clients={clients} clientClick={DisplayId} />
+        <Clients clients={clients} />
       </div>
     );
   }
@@ -48,7 +49,6 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    clickActions: bindActionCreators(clickActions, dispatch),
     loading: bindActionCreators(loading, dispatch)
   }
 }

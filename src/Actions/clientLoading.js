@@ -3,6 +3,7 @@
     function that emulates loading data from server
 */
 export function loadingClients() {
+    
     return (dispatch) => {
         dispatch({
             type: "CLIENTS_LOADING",

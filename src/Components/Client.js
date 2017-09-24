@@ -9,9 +9,9 @@ class Client extends Component {
     render() {
         const { client } = this.props
         return (
-            <div className="list-group-item" onClick={() => { this.props.onClientClick(client.id) }}>
+            <div className="list-group-item" >
                 {client.lastName} {client.name}, {client.middleName}, {client.email} , {client.phone}  {client.description}   
-                <Link to = {`client/${client.id}`}>Редактировать</Link>
+                <Link to = {`client/edit/${client.id}`}> Edit</Link>
 
             </div>
         )

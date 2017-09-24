@@ -4,7 +4,9 @@ import { createLogger } from 'redux-logger'
 
 import thunk from 'redux-thunk'
   
-
+/*
+creates a store with middlewares
+*/
 
 export default function configureStore(initialState) {
     const logger = createLogger()

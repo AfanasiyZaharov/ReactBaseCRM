@@ -1,37 +1,42 @@
 import React, { Component } from 'react';
 import Client from './Client'
+
+import { Link } from 'react-router'
+//import { Link } from 'react-router'
 //component, that displays a clients list
 class Clients extends Component {
 
-
+    //set init value of searching
     constructor(props) {
         super();
         this.state = { value: '', ...props };
 
     }
 
-    clickClient(id) {
-        this.props.clientClick(id);
-    }
 
-
+    //function, that filters client by search string
+    //I wanted to make this method private
+    // but es6 doesn't allow it
     filterClients(value) {
         let resArr = this.props.clients.filter((client) => {
             for (let key in client) {
-                if (typeof client[key] == "string") {
-                    if (client[key].search(value) != -1) {
+                if (typeof client[key] === "string") {
+                    if (client[key].search(value) !== -1) {
                         return true;
                     }
                 }
             }
+            return false;
         });
         return resArr;
     }
-
+    //handles changing  search input
     changeFilterElem(e) {
         var value = e.target.value;
         this.setState({ value: value });
     }
+
+    //handles search button click
     clickSearch() {
         let value = this.state.value;
         const clients = this.filterClients(value);
@@ -42,17 +47,8 @@ class Clients extends Component {
         const { clients } = nextProps
         this.setState({ clients: clients });
     }
-    // componentWillMount(){
-    //     debugger;
-    //     const {clients} = this.props.clients
-    //     this.setState({ clients: clients });
-    // }
     render() {
-        console.count('render');
         const { clients } = this.state;
-        console.log('clients', clients);
-        console.log(this.state);
-        //const { clients } = this.state;
         return (
             <div>
                 {
@@ -68,8 +64,14 @@ class Clients extends Component {
                             </div>
 
                             <div className="list-group">
-                                {clients.map(client => <Client key={client.id} client={client} onClientClick={this.clickClient.bind(this)} />)}
+                                {clients.map(client => <Client key={client.id} client={client} />)}
                             </div>
+
+
+
+                            <Link className="btn btn-defaul"
+                                role="button"
+                                to="/client/add/"> Add New</Link>
                         </div>
                 }
 
