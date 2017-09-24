@@ -1,4 +1,6 @@
 
+
+import {CLIENTS_LOADING, CLIENTS_LOADED } from '../Constants/Constants'
 /*
     function that emulates loading data from server
 */
@@ -6,13 +8,13 @@ export function loadingClients() {
     
     return (dispatch) => {
         dispatch({
-            type: "CLIENTS_LOADING",
+            type: CLIENTS_LOADING,
         });
 
 
         setTimeout(() => {
             dispatch({
-                type: 'CLIENTS_LOADED',
+                type: CLIENTS_LOADED,
                 payload: [
                     {
                         id: 0,

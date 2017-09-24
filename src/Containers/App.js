@@ -26,7 +26,6 @@ class App extends Component {
   render() {
 
     const { ownProps } = this.props
-    console.log('own', ownProps)
     const { clients } = this.props
     return (
 

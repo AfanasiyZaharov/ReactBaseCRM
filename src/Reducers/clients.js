@@ -1,3 +1,5 @@
+import { CLIENTS_LOADING, CLIENTS_LOADED, CLIENTS_EDITING_LOADING, CLIENT_EDITED, CLIENTS_ADDING_LOADING, CLIENT_ADDED } from '../Constants/Constants'
+
 const initialState = [
     {
         id: 0,
@@ -15,15 +17,15 @@ export default function clients(state = initialState, action) {
     //a test action to learn how to actions work
     switch (action.type) {
         //action that set state to loading state
-        case "CLIENTS_LOADING":
+        case CLIENTS_LOADING:
             return { loading: true }
         //action, that update clients by the data from ajax request emulator
-        case "CLIENTS_LOADED":
+        case CLIENTS_LOADED:
             return action.payload;
-        case "CLIENTS_EDITING_LOADING":
+        case CLIENTS_EDITING_LOADING:
             return state;
         //when client edited
-        case "CLIENT_EDITED":
+        case CLIENT_EDITED:
             let clientsNew = state.slice();
             clientsNew.forEach((elem, index) => {
                 if (elem.id === action.payload.id) {
@@ -31,10 +33,10 @@ export default function clients(state = initialState, action) {
                 }
             });
             return clientsNew;
-        case "CLIENTS_ADDING_LOADING":
+        case CLIENTS_ADDING_LOADING:
             return state
         //when new client added
-        case "CLIENT_ADDED":
+        case CLIENT_ADDED:
             let clientsNewAdded = state.slice()
             clientsNewAdded.push(action.payload)
             return clientsNewAdded;
