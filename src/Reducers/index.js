@@ -5,7 +5,9 @@ import clients from './clients'
 import { routerReducer } from 'react-router-redux'
 
 
-//combined reducers
+/*
+    combined reducers
+*/
 export default combineReducers({
     routing: routerReducer,
     clients

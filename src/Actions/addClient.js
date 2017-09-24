@@ -1,10 +1,7 @@
-
-
-import { CLIENTS_ADDING_LOADING, CLIENT_ADDED } from '../Constants/Constants'
+import { CLIENTS_ADDING_LOADING, CLIENT_ADDED } from '../Constants/Constants';
 /*
     An action, that add client
 */
-
 export default function addClient(clientFormData) {
 
 

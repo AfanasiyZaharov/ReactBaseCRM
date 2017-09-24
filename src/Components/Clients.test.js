@@ -21,7 +21,7 @@ const inputValue = {
     target: {
         value: "asddsadsadsad"
     }
-}
+};
 
 describe('Clients component', () => {
     it('renders without crashing', () => {
@@ -39,7 +39,7 @@ describe('Clients component', () => {
 
         clientsComponent.instance().changeFilterElem(inputValue);
 
-        clientsComponent.instance().clickSearch()
+        clientsComponent.instance().clickSearch();
          expect(clientsComponent.instance().state.clients).toEqual([]);
     });
 });

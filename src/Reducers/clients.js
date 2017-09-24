@@ -1,4 +1,4 @@
-import { CLIENTS_LOADING, CLIENTS_LOADED, CLIENTS_EDITING_LOADING, CLIENT_EDITED, CLIENTS_ADDING_LOADING, CLIENT_ADDED } from '../Constants/Constants'
+import { CLIENTS_LOADING, CLIENTS_LOADED, CLIENTS_EDITING_LOADING, CLIENT_EDITED, CLIENTS_ADDING_LOADING, CLIENT_ADDED } from '../Constants/Constants';
 
 const initialState = [
     {
@@ -12,35 +12,42 @@ const initialState = [
     },
 ];
 
-
+/*
+    main clients reducer
+*/
 export default function clients(state = initialState, action) {
     //a test action to learn how to actions work
     switch (action.type) {
         //action that set state to loading state
         case CLIENTS_LOADING:
-            return { loading: true }
+            return { loading: true };
         //action, that update clients by the data from ajax request emulator
         case CLIENTS_LOADED:
             return action.payload;
         case CLIENTS_EDITING_LOADING:
-            return state;
+            return { loading: true };
         //when client edited
         case CLIENT_EDITED:
-            let clientsNew = state.slice();
-            clientsNew.forEach((elem, index) => {
+            let currentClients = state.slice();
+            let editedClient = action.payload;
+            currentClients.forEach((elem, index) => {
                 if (elem.id === action.payload.id) {
-                    clientsNew[index] = action.payload;
+                    currentClients[index] = editedClient;
                 }
             });
-            return clientsNew;
+            return currentClients;
         case CLIENTS_ADDING_LOADING:
-            return state
+            return { loading: true };
         //when new client added
         case CLIENT_ADDED:
-            let clientsNewAdded = state.slice()
-            clientsNewAdded.push(action.payload)
-            return clientsNewAdded;
+            let existingClients = state.slice();
+            let newlyAddedClient = action.payload;
+            existingClients.push(newlyAddedClient);
+
+            return existingClients;
         default:
-            return state
+            return state;
     }
-}
+};
+
+

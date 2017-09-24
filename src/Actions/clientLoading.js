@@ -1,6 +1,6 @@
 
 
-import {CLIENTS_LOADING, CLIENTS_LOADED } from '../Constants/Constants'
+import {CLIENTS_LOADING, CLIENTS_LOADED } from '../Constants/Constants';
 /*
     function that emulates loading data from server
 */

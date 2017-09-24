@@ -1,14 +1,14 @@
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
-import addClient from './addClient'
-import { CLIENTS_ADDING_LOADING, CLIENT_ADDED } from '../Constants/Constants'
-
-
+import addClient from './addClient';
+import { CLIENTS_ADDING_LOADING, CLIENT_ADDED } from '../Constants/Constants';
 
 
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
+
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 const client = {
     name: "Василий",
@@ -27,15 +27,15 @@ describe('async actions addClient', () => {
         { type: CLIENTS_ADDING_LOADING },
         { type: CLIENT_ADDED }
     ];
-    const store = mockStore([])
+    const store = mockStore([]);
 
 
     it('creates Adding ClientActions', () => {
         addClient(client);
         setTimeout(()=>{
 
-            console.log("actions ===== ", store.getActions())
-            expect(store.getActions()).toEqual(expectedActions)
+            console.log("actions ===== ", store.getActions());
+            expect(store.getActions()).toEqual(expectedActions);
         },500);
     });
 

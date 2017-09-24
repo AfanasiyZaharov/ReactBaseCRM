@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 
-import { connect } from 'react-redux'
-import * as editing from '../Actions/editClient'
-import * as adding from '../Actions/addClient'
+import { connect } from 'react-redux';
+import * as editing from '../Actions/editClient';
+import * as adding from '../Actions/addClient';
 
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
 
 
 
 /*
     Container, provides a form to edit client
-
 */
-
 const stateComponentEditing = 'edit';
 const stateComponentAdding = 'add'
 
@@ -20,27 +18,34 @@ const stateComponentAdding = 'add'
 class clientEdit extends Component {
 
 
-    //handles click button 'edit' event
+    /*
+        handles click button 'edit' event
+    */
     clickEdit() {
         let formData = this.props.client;
 
         this.props.editing.editClient(formData);
-        this.props.router.push('/')
+        this.props.router.push('/');
     }
-    //handles click button 'add' event
+
+    /*
+        handles click button 'add' event
+    */
     clickAdd() {
         let formData = this.props.client;
 
         this.props.adding.addClient(formData);
-        this.props.router.push('/')
+        this.props.router.push('/');
     }
 
 
-    //handles inputs changes
+    /*
+        handles inputs changes
+    */
     handleFieldChange(event) {
-        let target = event.target
-        let formData = this.props.client
-        formData[target.id] = target.value
+        let target = event.target;
+        let formData = this.props.client;
+        formData[target.id] = target.value;
         this.setState({ 'client': formData });
 
     }
@@ -92,27 +97,25 @@ class clientEdit extends Component {
 }
 
 
-//this component can work in two cases - editing and adding
-//if adding - we provide an empty client without id
-//else - all client data
+/*
+    this component can work in two cases - editing and adding
+    if adding - we provide an empty client without id
+    else - all client data
+*/
 function mapStateToProps(state, ownProps) {
-    let client,
-        stateComponent;
+    let client;
+
+    let emptyClient = { name: "", description: "", middleName: "", lastName: "", phone: "", mail: "" };
     if (ownProps.params.clientId !== undefined) {
         client = state.clients.find((client) => {
             return client.id === +ownProps.params.clientId;
-        });
-        stateComponent = stateComponentEditing;
-    } else {
-        client = { name: "", description: "", middleName: "", lastName: "", phone: "", mail: "" }
-        stateComponent = stateComponentAdding
+        }) || emptyClient;
+        return { client, stateComponent: stateComponentEditing };
     }
 
-    return {
-        client,
-        stateComponent
-    }
+    return { emptyClient, stateComponent: stateComponentAdding };
 }
+
 
 function mapDispatchToProps(dispatch) {
     return {

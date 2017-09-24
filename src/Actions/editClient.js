@@ -1,13 +1,8 @@
-
 import { CLIENTS_EDITING_LOADING, CLIENT_EDITED } from '../Constants/Constants'
-
 
 /*
     An action, that edit client
 */
-
-
-
 export function editClient(clientFormData) {
 
 
@@ -27,4 +22,4 @@ export function editClient(clientFormData) {
         }, 300);
 
     }
-}
+};

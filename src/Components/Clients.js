@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Client from './Client'
+import Client from './Client';
 
-import { Link } from 'react-router'
-//import { Link } from 'react-router'
+import { Link } from 'react-router';
 //component, that displays a clients list
 class Clients extends Component {
 
@@ -12,7 +11,6 @@ class Clients extends Component {
         this.state = { value: '', ...props };
 
     }
-
 
     //function, that filters client by search string
     //I wanted to make this method private
@@ -30,6 +28,7 @@ class Clients extends Component {
         });
         return resArr;
     }
+
     //handles changing  search input
     changeFilterElem(e) {
         var value = e.target.value;
@@ -44,31 +43,29 @@ class Clients extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const { clients } = nextProps
+        const { clients } = nextProps;
         this.setState({ clients: clients });
     }
+
     render() {
         const { clients } = this.state;
         return (
             <div>
                 {
                     clients.loading ?
-                        'Загрузка!!' :
+                        'Loading!!' :
                         <div>
                             <div className="form-inline">
                                 <div className="formGroup">
                                     <label htmlFor="searchClients" >Search Clients</label>
-                                    <input type="text" className="form-control" onChange={this.changeFilterElem.bind(this)} id="searchClients" />
+                                    <input type="text" className="form-control" value={this.state.value} onChange={this.changeFilterElem.bind(this)} id="searchClients" />
                                 </div>
-                                <button className="btn btn-default" value={this.state.value} onClick={this.clickSearch.bind(this)} >Search</button>
+                                <button className="btn btn-default" onClick={this.clickSearch.bind(this)} >Search</button>
                             </div>
 
                             <div className="list-group">
                                 {clients.map(client => <Client key={client.id} client={client} />)}
                             </div>
-
-
-
                             <Link className="btn btn-defaul"
                                 role="button"
                                 to="/client/add/"> Add New</Link>
@@ -80,4 +77,10 @@ class Clients extends Component {
     }
 }
 
-export default Clients
+export default Clients;
+
+
+
+
+
+
